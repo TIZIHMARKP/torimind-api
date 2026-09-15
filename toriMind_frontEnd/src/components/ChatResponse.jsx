@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 const ChatResponse = ({ response }) => {
     if(!response){
@@ -24,7 +25,7 @@ const ChatResponse = ({ response }) => {
                     {choice.message.content}
                 </p> */}
                 <div className="card-text">
-                    <ReactMarkdown>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>
                         {choice.message.content}
                     </ReactMarkdown>
                 </div>
