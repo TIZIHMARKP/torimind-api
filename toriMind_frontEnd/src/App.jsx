@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import ChatInput from './components/ChatInput'
 import ChatResponse from './components/ChatResponse'
+import { fetchChatResponse } from './services/api'
 
 function App() {
   const [response, setResponse] = useState(0)
@@ -12,8 +13,8 @@ function App() {
     setResponse(null);
 
     try {
-
-      
+      const apiResponse = await fetchChatResponse(question);
+      setResponse(apiResponse)
     } catch (error) {
       alert("Failed to get Response")
     }finally{
@@ -33,7 +34,7 @@ function App() {
 
 
         {/* RESPONSE */}
-        <ChatResponse />
+        <ChatResponse response={response} />
       </div>
     </>
   )
