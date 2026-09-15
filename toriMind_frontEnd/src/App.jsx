@@ -1,19 +1,43 @@
 import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
 import './App.css'
+import ChatInput from './components/ChatInput'
+import ChatResponse from './components/ChatResponse'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [response, setResponse] = useState(0)
+  const [loading, setLoading] = useState(false);
+
+  const handleQuestionSubmit = async (question) => {
+    setLoading(true);
+    setResponse(null);
+
+    try {
+
+      
+    } catch (error) {
+      alert("Failed to get Response")
+    }finally{
+      setLoading(false)
+    }
+
+  }
 
   return (
     <>
-      <button type="button" className='btn btn-primary'>
-        ToriMind
-      </button>
+      <div className="App">
+        <header className="bg-primary text-white text-center py-4">
+          <h1>ToriMind ChatBot</h1>
+        </header>
+        {/* INPUT */}
+        <ChatInput onSubmit={handleQuestionSubmit} />
+
+
+        {/* RESPONSE */}
+        <ChatResponse />
+      </div>
     </>
   )
 }
 
 export default App
+
