@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const ChatInput = ( onSubmit ) => {
+const ChatInput = ({ onSubmit }) => {
 
     const [question, setQuestion] = useState("")
 
@@ -15,7 +15,7 @@ const ChatInput = ( onSubmit ) => {
 
   return (
     <div className='container my-4'>
-      <div onSubmit={handleSubmit} >
+      <form onSubmit={handleSubmit} >
         <label htmlFor="question">Ask a Question</label>
         
         <input type="text" 
@@ -25,11 +25,10 @@ const ChatInput = ( onSubmit ) => {
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
         />
-      </div>
-
-      <button type='submit' className="btn btn-primary mt-2">
-        Submit
-      </button>
+        <button type='submit' className="btn btn-primary mt-2">
+            Submit
+        </button>
+      </form>
 
     </div>
   )
