@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
 
 const ChatResponse = ({ response }) => {
     if(!response){
@@ -19,9 +20,14 @@ const ChatResponse = ({ response }) => {
             <div className="card-body">
 
                 <h5 className="card-title">Answer {index + 1}</h5>
-                <p className="card-text" style={{ whiteSpace: 'pre-wrap' }}>
+                {/* <p className="card-text" style={{ whiteSpace: 'pre-wrap' }}>
                     {choice.message.content}
-                </p>
+                </p> */}
+                <div className="card-text">
+                    <ReactMarkdown>
+                        {choice.message.content}
+                    </ReactMarkdown>
+                </div>
 
                 {usage && (
                     <>
