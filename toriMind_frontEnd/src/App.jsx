@@ -23,6 +23,10 @@ function App() {
 
   }
 
+  // if(loading){
+  //   return (<h1>Loading...</h1>)
+  // }
+
   return (
     <>
       <div className="App">
@@ -31,7 +35,9 @@ function App() {
         </header>
         {/* INPUT */}
         <ChatInput onSubmit={handleQuestionSubmit} />
-
+        {loading &&
+          <h3>Loading...</h3>
+        }
 
         {/* RESPONSE */}
         <ChatResponse response={response} />
